@@ -51,7 +51,19 @@
         dotsData: true,
     });
     
+    
 
     
 })(jQuery);
+
+function closeProjectModal() {
+    document.getElementById("projectModal").style.display = "none";
+    // Opsiyonel: Kapatıldıktan sonra sayfada kaydırmayı açmak istersen
+    document.body.style.overflow = "auto";
+}
+
+// Site açıldığında kaydırmayı geçici olarak kapatabilirsin (Modal görünürken)
+window.onload = function() {
+    document.body.style.overflow = "hidden";
+}
 
