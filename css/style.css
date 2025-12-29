@@ -560,3 +560,13 @@
 .project-modal-footer {
     margin-top: 25px;
 }
+
+/* Modal açıkken sayfanın kilitlenmesini garantiye alan yardımcı sınıf */
+.modal-open-fix {
+    overflow: hidden !important;
+}
+
+/* Modal kapalıyken sayfanın kaymasını garantiye alan sınıf */
+.modal-closed-fix {
+    overflow: visible !important;
+}

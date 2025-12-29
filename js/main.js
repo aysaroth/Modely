@@ -57,13 +57,23 @@
 })(jQuery);
 
 function closeProjectModal() {
-    document.getElementById("projectModal").style.display = "none";
-    // Opsiyonel: Kapatıldıktan sonra sayfada kaydırmayı açmak istersen
-    document.body.style.overflow = "auto";
+    const modal = document.getElementById("projectModal");
+    if (modal) {
+        modal.style.opacity = "0"; // Yumuşak geçiş için
+        setTimeout(() => {
+            modal.style.display = "none";
+            // Sayfa kaydırmayı kesin olarak geri açıyoruz
+            document.body.style.overflow = "visible";
+            document.documentElement.style.overflow = "visible";
+        }, 500); // Yarım saniye sonra tamamen kaldır
+    }
 }
 
-// Site açıldığında kaydırmayı geçici olarak kapatabilirsin (Modal görünürken)
-window.onload = function() {
-    document.body.style.overflow = "hidden";
-}
+// Site ilk açıldığında çalışacak kısım
+window.addEventListener('load', function() {
+    // Sadece modal varsa kaydırmayı durdur
+    if (document.getElementById("projectModal")) {
+        document.body.style.overflow = "hidden";
+    }
+});
 
